@@ -1,0 +1,77 @@
+<app-header> </app-header>
+
+<div class="container">
+    <p class="text-center"></p>
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <header class="card-header">
+                    <h5 class="card-title mt-2"> <i class="fa fa-money" aria-hidden="true"></i> - Consultar Averbação
+                    </h5>
+                </header>
+                <article class="card-body">
+                    <form [formGroup]="averbacaoForm" (ngSubmit)="consultar()">
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Código Empresa</label>
+                                <div class="required-field-block">
+                                    <input type="number" class="form-control" formControlName="codigo" id="inputCodigo"
+                                        name="inputCodigo" placeholder="" required>                                        
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-group col-md-4 text-center">
+                                <label>&nbsp;</label>
+                                <br>
+                                <button type="submit" [disabled]="!averbacaoForm.valid"
+                                    class="btn btn-primary btn-success"> Pesquisar </button>
+                            </div>
+
+                        </div>
+
+                        <hr>
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Empresa</th>
+                                        <th class="text-center">Prazo Expiração</th>
+                                        <th>Averbação</th>
+                                        <th>Pagamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            {{averbacao?.codigo}}
+                                        </td>
+                                        <td>
+                                            {{averbacao?.empresa}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{averbacao?.diasExpiracaoProposta}}
+                                        </td>
+                                        <td>
+                                            {{averbacao?.dataAverbacao | date: 'dd/MM/yyyy'}}
+                                        </td>
+                                        <td>
+                                            {{averbacao?.dataPagamento | date: 'dd/MM/yyyy'}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+</div>

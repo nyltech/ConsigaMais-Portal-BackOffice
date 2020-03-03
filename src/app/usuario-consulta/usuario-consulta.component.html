@@ -1,0 +1,80 @@
+<app-header> </app-header>
+
+<div class="container">
+    <p class="text-center"></p>
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <header class="card-header">
+                    <h5 class="card-title mt-2"> <i class="fa fa-users" aria-hidden="true"></i> - Consultar Usuário</h5>
+                </header>
+                <article class="card-body">
+                    <form>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label>Campo</label>
+                                <select id="inputStatus" class="form-control">
+                                    <option value="1" selected="">Nome</option>
+                                    <option value="2">E-mail</option>
+                                    <option value="3">Perfil</option>
+                                    <option value="4">Status</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-10">
+                                <label>Parâmetro</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary btn-success"> Pesquisar </button>
+                        </div>
+
+                        <hr>
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>Perfil</th>
+                                        <th>Status</th>
+                                        <th class="text-center">...</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Nome usuario
+                                        </td>
+                                        <td>
+                                            nilton.santos@consigamais.com.br
+                                        </td>
+                                        <td>
+                                            Configuração 
+                                        </td>
+                                        <td>
+                                            Ativo
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="usuario"><i class="fa fa-user-plus" aria-hidden="true"></i></a> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

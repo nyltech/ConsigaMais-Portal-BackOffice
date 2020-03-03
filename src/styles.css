@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* 
+.note
+{
+    text-align: center;
+    height: 50px;
+    background: -webkit-linear-gradient(left, #00B0b2, #48D1CC);
+    color: #fff;    
+    font-size: 25px;
+    line-height: 50px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #3CB371;
+    color: #fff;
+} */
+
+.card-header {    
+    padding: 0.25rem 1.25rem;
+    background-color: #DCDCDC;    
+}
+
+hr {
+   
+    border-top: 1px solid #5F9EA0;
+}
+
+.card {
+    background-color: #f7f7f7;
+    border: 1px solid #5F9EA0;    
+}
+.card-title {
+    /* font-family: monospace; */
+    color: rgb(17, 158, 163);
+}
+.navbar-light .navbar-nav .nav-link {
+    color:  rgb(17, 158, 163);
+}
+
+/* table */
+.table thead th {
+    color:rgb(17, 158, 163);
+    font-family: monospace;
+}
+
+.table tbody td {
+    color: #000000;
+    font-family: monospace;
+}

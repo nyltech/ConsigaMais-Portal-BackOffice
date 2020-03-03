@@ -1,0 +1,66 @@
+<app-header> </app-header>
+
+<div class="container">
+    <p class="text-center"></p>
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <header class="card-header">
+                    <h5 class="card-title mt-2"> <i class="fa fa-exchange" aria-hidden="true"></i> - Copiar Empresa /
+                        Filial</h5>
+                </header>
+                <article class="card-body">
+                    <form [formGroup]="copiaEmpresaFilialForm" (ngSubmit)="copiar()">
+                        <div class="required-field-block">
+
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Empresa</label>
+                                    <input type="number" formControlName="deEmpresa" id="deEmpresa" name="deEmpresa"
+                                        class="form-control" placeholder="Código de" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label>&nbsp;</label>
+                                    <input type="number" formControlName="paraEmpresa" id="paraEmpresa"
+                                        name="paraEmpresa" class="form-control" placeholder="Código para" required>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Filial</label>
+                                    <input type="number" formControlName="deFilial" id="deFilial" name="deFilial"
+                                        class="form-control" placeholder="Código de" required>
+                                </div>
+                                <div class="col form-group">
+                                    <label>&nbsp;</label>
+                                    <input type="number" formControlName="paraFilial" id="paraFilial" name="paraFilial"
+                                        class="form-control" placeholder="Código para" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12 text-right">
+                            <button type="submit" [disabled]="!copiaEmpresaFilialForm.valid"
+                                class="btn btn-primary btn-success">
+                                Executar </button>
+                        </div>
+
+                        <alert *ngIf="result" type="success">
+                            <strong></strong> Cópia realizada com sucesso!
+                        </alert>
+                        
+                        <!-- <alert *ngIf="!result" type="danger">
+                            <strong>Ops!</strong> Ocorreu um erro, tente novamente!
+                        </alert>  -->
+                    </form>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
