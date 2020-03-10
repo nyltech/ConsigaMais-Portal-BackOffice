@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { retry, catchError } from 'rxjs/operators';
 
-import { CONGIGA_API } from '../app.api'
+import { CONSIGA_API } from '../app.api'
 
 import { EmpresaFilial } from '../_model/empresa-filial-model';
 import { Observable, throwError } from 'rxjs';
@@ -20,7 +20,7 @@ export class EmpresaFilialService {
     incluirEmpresaFilial(empresaFilial: EmpresaFilial): Observable<any> {
 
 
-        return this.http.post<EmpresaFilial>(`${CONGIGA_API}/api/ReguaComunicacao/copiarEmpresaFilial`, JSON.stringify(empresaFilial), this.httpOptions)
+        return this.http.post<EmpresaFilial>(`${CONSIGA_API}/api/ReguaComunicacao/copiarEmpresaFilial`, JSON.stringify(empresaFilial), this.httpOptions)
             .pipe(
                 retry(2),
                 catchError(this.handleError)

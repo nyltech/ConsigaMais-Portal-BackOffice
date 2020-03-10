@@ -1,7 +1,8 @@
 export class Usuario {
-    UserName: string;
-    LoginName: string;
-    Password: string;
-    Email: string;
-    status: string;
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    status: number;
+    idPerfil:number;
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { retry, catchError } from 'rxjs/operators';
 
-import { CONGIGA_API } from '../app.api'
+import { CONSIGA_API } from '../app.api'
 import { Observable, throwError } from 'rxjs';
 import { Averbacao } from '../_model/averbacao-model';
 
@@ -12,7 +12,8 @@ export class AverbacaoConsultaService {
   constructor(private http: HttpClient) { }
 
   averbacaoByIdEmpresa(id: number): Observable<Averbacao> {
-    return this.http.get<Averbacao>(`${CONGIGA_API}/api/ReguaComunicacao/getConsultarAprovacaoEmpresa/${id}/`)
+    debugger
+    return this.http.get<Averbacao>(`${CONSIGA_API}/api/ReguaComunicacao/getConsultarAprovacaoEmpresa/${id}/`)
       .pipe(
         retry(2),
         catchError(this.handleError)

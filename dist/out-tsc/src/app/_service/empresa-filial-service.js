@@ -2,7 +2,7 @@ import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from "@angular/common/http";
 import { retry, catchError } from 'rxjs/operators';
-import { CONGIGA_API } from '../app.api';
+import { CONSIGA_API } from '../app.api';
 import { EmpresaFilial } from '../_model/empresa-filial-model';
 import { throwError } from 'rxjs';
 let EmpresaFilialService = class EmpresaFilialService {
@@ -14,7 +14,7 @@ let EmpresaFilialService = class EmpresaFilialService {
     }
     incluirEmpresaFilial(empresaFilial) {
         console.log(empresaFilial);
-        return this.http.post(`${CONGIGA_API}/api/ReguaComunicacao/copiarEmpresaFilial`, JSON.stringify(EmpresaFilial))
+        return this.http.post(`${CONSIGA_API}/api/ReguaComunicacao/copiarEmpresaFilial`, JSON.stringify(EmpresaFilial))
             .pipe(retry(2), catchError(this.handleError));
     }
     handleError(error) {
