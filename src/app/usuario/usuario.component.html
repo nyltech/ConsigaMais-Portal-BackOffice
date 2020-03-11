@@ -12,38 +12,38 @@
                     <h5 class="card-title mt-2"> <i class="fa fa-user" aria-hidden="true"></i> - Cadastro de Usuário</h5>
                 </header>
                 <article class="card-body">
-                    <form>
+                    <form [formGroup]="usuarioForm" (ngSubmit)="createUser()">
 
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label>Nome</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" formControlName="nome" placeholder="">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label>E-mail</label>
-                                <input type="email" class="form-control" placeholder="">
+                                <input type="email" class="form-control" formControlName="email" placeholder="">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col form-group">
                                 <label>Senha</label>
-                                <input type="password" class="form-control" placeholder="">
+                                <input type="password" class="form-control" formControlName="senha" placeholder="">
                             </div>
                             <div class="col form-group">
                                 <label>Confirma senha</label>
-                                <input type="password" class="form-control" placeholder=" ">
+                                <input type="password" class="form-control" formControlName="confirmaSenha" placeholder=" ">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Perfil</label>
-                                <select id="inputPerfil" class="form-control">
-                                    <option value="1"selected="">Atendimento</option>
+                                <select class="form-control" formControlName="idPerfil">
+                                    <option value="1">Atendimento</option>
                                     <option value="2" >Operação</option>
                                     <option value="3">Risco</option>
                                     <option value="4">Administrador</option>
@@ -52,13 +52,12 @@
 
                             <div class="form-group col-md-6">
                                 <label>Status</label>
-                                <select id="inputStatus" class="form-control">
-                                    <option value="1" selected="">Ativo</option>
-                                    <option value="2">Inativo</option>
-                                    <option value="3">Bloqueado</option>                                    
+                                <select class="form-control" formControlName="status">
+                                    <option value="1" >Ativo</option>
+                                    <option value="2" [disabled]="true" >Inativo</option>
+                                    <option value="3" [disabled]="true">Bloqueado</option>                                    
                                 </select>
-                            </div>
-                            
+                            </div>                            
 
                         </div>
                         <div class="form-group col-md-12 text-right">

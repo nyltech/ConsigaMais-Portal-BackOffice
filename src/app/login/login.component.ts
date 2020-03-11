@@ -13,13 +13,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   errorMessage: string;
-
+  
   loginForm = new FormGroup({
     email: new FormControl(''),
     senha: new FormControl(''),
   });
 
-  constructor(private router: Router, private LoginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
    
@@ -27,10 +27,11 @@ export class LoginComponent implements OnInit {
 
   login(): void {
 
-    this.LoginService.Login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(
+    this.loginService.Login(this.loginForm.value.email, this.loginForm.value.senha).subscribe(
       data => {
         console.log(data);
         if (data != null) {
+          localStorage.setItem('idPerfil', data.idPerfil.toString());
           this.loginForm.reset();
           this.router.navigate(['/dasboard']);
         }

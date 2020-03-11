@@ -42,7 +42,7 @@ export class CopiarEmpresaFilialComponent implements OnInit {
     return this.service.incluirEmpresaFilial(emprefilial)
       .subscribe(data => {
         this.result = data.copiado;
-        
+        this.copiaEmpresaFilialForm.reset();
         console.log(this.result);
       },
         err => {

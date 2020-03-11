@@ -26,10 +26,9 @@ export class LoginService {
     return this.http.get<Usuario>(`${CONSIGA_API}/api/ReguaComunicacao/getValidarUsuario/${email}/${senha}/`);
   }
 
-  // CreateUser(usuario: Usuario) {
-
-  //   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-  //   return this.http.post<Usuario[]>(this.Url + '/createcontact/', usuario, httpOptions)
-  // }
+   CreateUser(usuario: Usuario) {
+     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+     return this.http.post<Usuario[]>(`${CONSIGA_API}/api/ReguaComunicacao/gravarUsuario/`, usuario, httpOptions)
+   }
 
 }

@@ -1,1 +1,0 @@
-{"version":3,"file":"empresa-filial-model.js","sourceRoot":"","sources":["../../../../../src/app/_model/empresa-filial-model.ts"],"names":[],"mappings":"AAAA,MAAM,OAAO,aAAa;IAEtB,YAAa,IAAS;QACpB,IAAI,CAAC,YAAY,GAAG,IAAI,CAAC,YAAY;YACrC,IAAI,CAAC,cAAc,GAAG,IAAI,CAAC,cAAc;YACzC,IAAI,CAAC,WAAW,GAAG,IAAI,CAAC,WAAW;YACnC,IAAI,CAAC,aAAa,GAAG,IAAI,CAAC,aAAa,CAAA;IACzC,CAAC;CAOA"}

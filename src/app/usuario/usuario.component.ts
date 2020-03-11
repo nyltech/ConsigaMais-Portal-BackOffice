@@ -13,36 +13,40 @@ import { LoginService } from '../_service/login-service';
 })
 export class UsuarioComponent implements OnInit {
 
-  data = false;
-  UserForm: any;
-  massage: string;
+  data = false;  
+  msg: string;
+
+  usuarioForm = new FormGroup({
+    nome: new FormControl(''),
+    email: new FormControl(''),
+    senha: new FormControl(''),
+    confirmaSenha: new FormControl(''),
+    idPerfil: new FormControl(''),
+    status: new FormControl(''),
+
+  });
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    // this.UserForm = this.formbulider.group({
-    //   UserName: ['', [Validators.required]],
-    //   LoginName: ['', [Validators.required]],
-    //   Password: ['', [Validators.required]],
-    //   Email: ['', [Validators.required]],
-    //   ContactNo: ['', [Validators.required]],
-    //   Address: ['', [Validators.required]],
-    // });
+
   }
 
-  // onFormSubmit() {
-  //   const user = this.UserForm.value;
-  //   this.Createemployee(user);
-  // }
+  createUser() {
 
-  // Createemployee(register: Usuario) {
-  //   this.loginService.CreateUser(register).subscribe(
-  //     () => {
-  //       this.data = true;
-  //       this.massage = 'Data saved Successfully';
-  //       this.UserForm.reset();
-  //     });
-  // }
+    console.log(this.usuarioForm.value);
+
+    this.loginService.CreateUser(this.usuarioForm.value).subscribe(
+      () => {
+        this.data = true;
+        this.msg = 'Usuário salvo com sucesso!';
+        this.usuarioForm.reset();
+        alert(this.msg);
+      });
+
+    
+
+  }
 
 
 }

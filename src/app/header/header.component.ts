@@ -9,7 +9,10 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  idPerfil: number;
+
   ngOnInit() {
+    this.idPerfil = Number(localStorage.getItem('idPerfil'));
   }
 
 }
