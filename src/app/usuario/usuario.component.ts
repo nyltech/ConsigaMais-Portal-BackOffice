@@ -1,3 +1,4 @@
+import { Validacoes } from './valicacoes';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -16,25 +17,18 @@ export class UsuarioComponent implements OnInit {
   data = false;  
   msg: string;
 
-  usuarioForm = new FormGroup({
-    nome: new FormControl(''),
-    email: new FormControl(''),
-    senha: new FormControl(''),
-    confirmaSenha: new FormControl(''),
-    idPerfil: new FormControl(''),
-    status: new FormControl(''),
+  usuarioForm: FormGroup;
 
-  });
-
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
-
+    this.createForm();
   }
 
   createUser() {
 
-    console.log(this.usuarioForm.value);
+    console.log(this.usuarioForm);
 
     this.loginService.CreateUser(this.usuarioForm.value).subscribe(
       () => {
@@ -43,10 +37,54 @@ export class UsuarioComponent implements OnInit {
         this.usuarioForm.reset();
         alert(this.msg);
       });
-
-    
-
   }
+
+  createForm(){
+    this.usuarioForm = this.fb.group({
+      nome: [
+              '',
+              Validators.compose([
+              Validators.required,
+              Validators.minLength(3),
+              Validators.maxLength(100)
+        ])
+      ],
+      email: ['', Validators.compose([Validators.email])],
+      senha: ['', Validators.compose([Validators.required])],
+      confirmaSenha: ['', Validators.compose([Validators.required])],
+      idPerfil: ['', Validators.compose([Validators.required])],      
+      status: ['', Validators.compose([Validators.required])]
+    },
+      {
+        validator: Validacoes.SenhasCombinam
+      }
+    );
+  }
+
+  get nome() {
+    return this.usuarioForm.get('nome');
+  }
+
+  get email() {
+    return this.usuarioForm.get('email');
+  }
+
+  get senha() {
+    return this.usuarioForm.get('senha');
+  }
+
+  get confirmaSenha() {
+    return this.usuarioForm.get('confirmaSenha');
+  }
+
+  get idPerfil() {
+    return this.usuarioForm.get('idPerfil');
+  }
+
+  get status() {
+    return this.usuarioForm.get('status');
+  }
+ 
 
 
 }

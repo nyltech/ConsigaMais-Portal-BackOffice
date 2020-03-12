@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatMenuModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -36,16 +36,15 @@ import {SharedModule} from './shared/shared.module';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-
+    ReactiveFormsModule,
     AlertModule.forRoot(),
-
+    
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
     MatIconModule,
     MatMenuModule,
-
     SharedModule.forRoot(),
   ],
   providers: [],

@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto mr-5">
 
-            <li class="nav-item dropdown" *ngIf="idPerfil > 2" >
+            <li class="nav-item dropdown" *ngIf="idPerfil == 2 || idPerfil == 1" >
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Atendimento
@@ -17,7 +17,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="idPerfil == 3 || idPerfil == 1">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Operação
@@ -29,10 +29,10 @@
                 </div>
             </li>
            
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="idPerfil == 4 || idPerfil == 1">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tecnologia
+                    Risco
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">...</a>
@@ -41,7 +41,17 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown disabled">
+            <li class="nav-item dropdown disabled" *ngIf="idPerfil == 5 || idPerfil == 1">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    CRM/BI
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                    
+                    <a class="dropdown-item" href="#">...</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown disabled" *ngIf="idPerfil == 1">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Configuração
