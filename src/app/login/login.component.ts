@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../_service/login-service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
 
@@ -14,15 +14,14 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string;
   
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    senha: new FormControl(''),
-  });
+  loginForm: FormGroup;
 
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(private router: Router,
+              private loginService: LoginService,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
-   
+   this.createForm();
   }
 
   login(): void {
@@ -44,5 +43,22 @@ export class LoginComponent implements OnInit {
         this.errorMessage = error.message;
       });
   };
+
+  createForm(): void {
+    this.loginForm = this.fb.group({
+      email:['', Validators.compose([Validators.email])],
+      senha: ['', Validators.compose([Validators.required])]
+    })
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get senha() {
+    return this.loginForm.get('senha');
+  }
+
+
 
 }

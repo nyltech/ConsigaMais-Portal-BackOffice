@@ -2,21 +2,31 @@
 <html>
 
 <body>
-    
+
     <div class="login-form">
-        
+
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="text-center">
                 <a [routerLink]="['/']" class="navbar-brand"><img src="assets/img/logo.svg" /></a>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" formControlName="email" placeholder="E-mail" required="required">
+                <input type="email" class="form-control" formControlName="email" placeholder="E-mail">
+                <div *ngIf="!email.pristine && email.errors">
+                    <p class="message" *ngIf="email.errors.email">
+                        Digite um e-mail válido.
+                    </p>
+                </div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" formControlName="senha" placeholder="Senha" required="required">
+                <input type="password" class="form-control" formControlName="senha" placeholder="Senha">
+                <div *ngIf="!senha.pristine && senha.errors">
+                    <p class="message" *ngIf="senha.errors.required">
+                        Senha é obrigatória.
+                    </p>
+                </div>
             </div>
             <div class="form-group text-right">
-                <button type="submit" class="btn btn-primary btn-success">Logar</button>
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-success">Logar</button>
             </div>
 
         </form>
